@@ -13,6 +13,54 @@ const FORM_SECRET = 'fb153336bb032e5e9c2d781c4ce4bd721f0e432080b67e65';
 
 const STORAGE_KEY = 'fiestas_pueblos_v1';
 
+/* ── Language ───────────────────────────────────────────── */
+const LANG = new URLSearchParams(window.location.search).get('lang') === 'ca' ? 'ca' : 'es';
+
+const UI = {
+  es: {
+    yamlFile:        'questions.yaml',
+    badge:           (idx, total) => `Pregunta ${idx} de ${total}`,
+    progress:        (cur, total) => `Paso ${cur} de ${total}`,
+    required:        'Este campo es obligatorio',
+    invalidEmail:    'Introduce un email válido',
+    sending:         'Enviando respuestas…',
+    sendError:       'Hubo un error al enviar. Por favor inténtalo de nuevo.',
+    loadError:       'Error al cargar las preguntas',
+    showLabel:       'Fiestas de Pueblos · Jordi Merca',
+    siteTitle:       '¡Queremos saberlo\ntodo de tu pueblo!',
+    btnNext:         'Siguiente →',
+    successTitle:    '¡Muchas gracias!',
+    successMsg:      (pueblo) => `Hemos recibido las respuestas de <strong>${pueblo}</strong>.<br>Nos pondremos en contacto contigo pronto.`,
+    successTeam:     '– El equipo de Fiestas de Pueblos',
+  },
+  ca: {
+    yamlFile:        'questions.ca.yaml',
+    badge:           (idx, total) => `Pregunta ${idx} de ${total}`,
+    progress:        (cur, total) => `Pas ${cur} de ${total}`,
+    required:        'Aquest camp és obligatori',
+    invalidEmail:    'Introdueix un email vàlid',
+    sending:         'Enviant respostes…',
+    sendError:       'Hi ha hagut un error en enviar. Si us plau, torna-ho a intentar.',
+    loadError:       'Error en carregar les preguntes',
+    showLabel:       'Festes de Pobles · Jordi Merca',
+    siteTitle:       'Volem saber-ho\ntot del teu poble!',
+    btnNext:         'Següent →',
+    successTitle:    'Moltes gràcies!',
+    successMsg:      (pueblo) => `Hem rebut les respostes de <strong>${pueblo}</strong>.<br>Ens posarem en contacte amb tu aviat.`,
+    successTeam:     '– L\'equip de Festes de Pobles',
+  },
+}[LANG];
+
+if (LANG === 'ca') {
+  document.documentElement.lang = 'ca';
+  document.querySelector('.show-label').textContent             = UI.showLabel;
+  document.querySelector('.site-title').textContent             = UI.siteTitle;
+  document.getElementById('btnNext').textContent                = UI.btnNext;
+  document.querySelector('.success-card h2').textContent        = UI.successTitle;
+  document.querySelector('.success-card p:first-of-type').innerHTML = UI.successMsg('');
+  document.querySelector('.success-sub').textContent            = UI.successTeam;
+}
+
 /* ── State ─────────────────────────────────────────────── */
 let steps = [];          // parsed from questions.yaml
 let currentStep = 0;     // index into steps[]
@@ -36,8 +84,8 @@ const toast         = document.getElementById('toast');
 /* ── Bootstrap ─────────────────────────────────────────── */
 async function init() {
   try {
-    const res = await fetch('questions.yaml');
-    if (!res.ok) throw new Error('No se pudo cargar questions.yaml');
+    const res = await fetch(UI.yamlFile);
+    if (!res.ok) throw new Error(`No se pudo cargar ${UI.yamlFile}`);
     const raw = await res.text();
     const parsed = jsyaml.load(raw);
     // Normalise YAML keys to the internal format the rest of the code uses
@@ -55,7 +103,7 @@ async function init() {
     }));
   } catch (err) {
     formContainer.innerHTML = `<p style="color:#A8192E;text-align:center;padding:40px">
-      Error al cargar las preguntas: ${err.message}</p>`;
+      ${UI.loadError}: ${err.message}</p>`;
     return;
   }
 
@@ -80,7 +128,7 @@ function buildAllSteps() {
     if (stepData.type !== 'intro') {
       const badge = document.createElement('span');
       badge.className = 'step-badge';
-      badge.textContent = `Pregunta ${idx} de ${steps.length - 1}`;
+      badge.textContent = UI.badge(idx, steps.length - 1);
       div.appendChild(badge);
     }
 
@@ -235,7 +283,7 @@ function updateProgress() {
     : Math.round((currentStep / (steps.length - 1)) * 100);
   progressBar.style.width = pct + '%';
   progressBar.parentElement.setAttribute('aria-valuenow', pct);
-  progressLabel.textContent = `Paso ${currentStep + 1} de ${steps.length}`;
+  progressLabel.textContent = UI.progress(currentStep + 1, steps.length);
 }
 
 /* ── Validation ─────────────────────────────────────────── */
@@ -248,7 +296,7 @@ function validateCurrentStep() {
     const input = document.getElementById(`field-${field.id}`);
     if (!input) return;
     if (!input.value.trim()) {
-      showError(input, field.id, 'Este campo es obligatorio');
+      showError(input, field.id, UI.required);
       valid = false;
     }
   });
@@ -258,7 +306,7 @@ function validateCurrentStep() {
   if (emailInput && emailInput.closest(`#step-${currentStep}`)) {
     const val = emailInput.value.trim();
     if (val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-      showError(emailInput, 'email', 'Introduce un email válido');
+      showError(emailInput, 'email', UI.invalidEmail);
       valid = false;
     }
   }
@@ -338,7 +386,7 @@ btnSubmit.addEventListener('click', async () => {
   // Show sending overlay
   const overlay = document.createElement('div');
   overlay.className = 'sending-overlay';
-  overlay.innerHTML = '<div class="spinner"></div><span>Enviando respuestas…</span>';
+  overlay.innerHTML = `<div class="spinner"></div><span>${UI.sending}</span>`;
   formContainer.appendChild(overlay);
   btnSubmit.disabled = true;
 
@@ -360,12 +408,12 @@ btnSubmit.addEventListener('click', async () => {
     clearProgress();
 
     // Show success
-    successPueblo.textContent = answers.pueblo || 'tu pueblo';
+    document.querySelector('.success-card p:first-of-type').innerHTML = UI.successMsg(answers.pueblo || 'tu pueblo');
     successScreen.style.display = 'flex';
 
   } catch (err) {
     console.error('Submit error:', err);
-    showToast('Hubo un error al enviar. Por favor inténtalo de nuevo.');
+    showToast(UI.sendError);
     btnSubmit.disabled = false;
   } finally {
     overlay.remove();

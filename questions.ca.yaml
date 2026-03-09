@@ -1,0 +1,387 @@
+# =============================================================
+#  PREGUNTES DEL FORMULARI – Festes de Pobles
+# =============================================================
+#
+#  Cada bloc que comença amb "- titulo:" és un PAS del formulari.
+#  Si un pas té diverses "preguntas:", totes apareixen juntes
+#  a la mateixa pantalla (agrupades). Si només en té una, va sola.
+#
+#  Pots canviar qualsevol "pregunta:" o "ejemplo:" lliurement.
+#  L'"ejemplo:" és el text en gris que apareix dins del camp.
+#
+#  Per afegir un pas nou, copia'n un d'existent i enganxa'l on vulguis.
+#  Per agrupar dues preguntes a la mateixa pantalla, posa-les sota el mateix titulo.
+#  Per separar-les, posa-les en blocs diferents (cadascun amb el seu "- titulo:").
+#
+#  L'únic que NO has de canviar són les línies "id:" — és el nom
+#  de la columna a Google Sheets. Si canvies un id perds aquella dada.
+# =============================================================
+
+
+# ----- PAS INICIAL: dades de contacte ----------------------
+- titulo: "Volem saber-ho tot del teu poble!"
+  subtitulo: >
+    Formulari per al show "Festes de Pobles" de Jordi Merca.
+    Omple les dades i explica'ns-ho tot.
+  preguntas:
+    - id: pueblo
+      pregunta: "Com es diu el teu poble o ciutat?"
+      ejemplo: "Nom del poble o ciutat"
+      obligatorio: true
+    - id: nombre
+      pregunta: "El teu nom"
+      ejemplo: "Com et dius?"
+      obligatorio: true
+    - id: email
+      pregunta: "El teu email"
+      ejemplo: "per poder posar-nos en contacte amb tu"
+      obligatorio: true
+      tipo: email
+
+
+# ----- PREGUNTES --------------------------------------------
+
+- titulo: "El gentilici"
+  preguntas:
+    - id: gentilicio
+      pregunta: "Quin és el gentilici del teu poble o ciutat?"
+      ejemplo: "Ex: madrileny, barceloní..."
+    - id: apodo_gente
+      pregunta: "Com s'anomena col·loquialment la gent del teu poble o ciutat?"
+      ejemplo: "El malnom o apodo que té la gent del lloc"
+
+- titulo: "Paraules i argot local"
+  preguntas:
+    - id: palabras_locales
+      pregunta: "Hi ha paraules que només s'usin al teu poble o ciutat? Quines i quin significat tenen?"
+      ejemplo: "Escriu les paraules i el seu significat"
+
+- titulo: "Habitants i barris"
+  preguntas:
+    - id: num_habitantes
+      pregunta: "Nombre d'habitants del teu poble o ciutat?"
+      ejemplo: "Nombre aproximat"
+    - id: num_barrios
+      pregunta: "Quants barris hi ha al teu poble o ciutat?"
+      ejemplo: "Nombre de barris"
+    - id: nombre_barrios
+      pregunta: "Nom dels barris i característiques que tenen"
+      ejemplo: "Explica'ns els barris i allò que els caracteritza"
+
+- titulo: "Malnoms i apodos"
+  preguntas:
+    - id: motes_comunes
+      pregunta: "Quins són els malnoms més comuns o divertits del vostre poble o ciutat?"
+      ejemplo: "Els malnoms que més es senten per aquí"
+
+- titulo: "Rivalitats"
+  preguntas:
+    - id: pueblos_rivales
+      pregunta: "Quins són els vostres pobles o ciutats rivals?"
+      ejemplo: "El poble o ciutat amb qui teniu més tinya"
+    - id: grado_rivalidad
+      pregunta: "Fins on arriba aquesta rivalitat?"
+      ejemplo: "És cosa de broma o va de debò?"
+
+- titulo: "Anècdotes amb el poble rival"
+  preguntas:
+    - id: anecdota_rival
+      pregunta: "Alguna anècdota divertida amb aquest poble o ciutat rival?"
+      ejemplo: "La història que més gràcia us fa explicar"
+    - id: burla_rival
+      pregunta: "Hi ha alguna cosa de la qual sempre us rieu del poble o ciutat veí?"
+      ejemplo: "Allò que sempre els traieu en cara"
+    - id: nombre_rival
+      pregunta: "Algun nom divertit que tingueu vosaltres per a aquell poble o ciutat?"
+      ejemplo: "El malnom que poseu al poble rival"
+
+- titulo: "La parella més longeva"
+  preguntas:
+    - id: pareja_longeva
+      pregunta: "Quina és la parella més longeva del teu poble o ciutat?"
+      ejemplo: "La parella que fa més anys que estan junts"
+
+- titulo: "Parelles amb gent de fora"
+  preguntas:
+    - id: parejas_foraneas
+      pregunta: "Hi ha parelles del teu poble o ciutat que s'ajuntin amb els d'altres ciutats o pobles propers?"
+      ejemplo: "Es barregen o es queden entre vosaltres?"
+
+- titulo: "Refranys i dites"
+  preguntas:
+    - id: refranes
+      pregunta: "Refranys o dites populars del teu poble o ciutat, o que sonin molt en aquesta zona?"
+      ejemplo: "Els que es repeteixen al bar, a casa, a la plaça..."
+
+- titulo: "Carrers amb nom divertit"
+  preguntas:
+    - id: calle_divertida
+      pregunta: "Hi ha algun carrer amb nom divertit al teu poble o ciutat?"
+      ejemplo: "El nom que sempre fa riure els visitants"
+
+- titulo: "La plaça més famosa"
+  preguntas:
+    - id: plaza_famosa
+      pregunta: "Com es diu la plaça més famosa del teu poble o ciutat, aquella on tothom queda per prendre alguna cosa o trobar-se?"
+      ejemplo: "La plaça de referència del poble"
+
+- titulo: "Rotondes"
+  preguntas:
+    - id: num_rotondas
+      pregunta: "Quantes rotondes hi ha al vostre poble o ciutat?"
+      ejemplo: "Nombre aproximat"
+    - id: rotonda_polemica
+      pregunta: "N'hi ha alguna de controvertida per algun motiu?"
+      ejemplo: "La que més comentaris genera"
+
+- titulo: "Projectes polèmics"
+  preguntas:
+    - id: proyecto_polemico
+      pregunta: "Algun projecte arquitectònic polèmic al vostre poble o ciutat (semàfor, cruïlla, plaça, etc.)? Quin i per què?"
+      ejemplo: "L'obra que més discussions ha generat"
+
+- titulo: "Monuments i famosos"
+  preguntas:
+    - id: monumentos
+      pregunta: "Algun monument o estàtua a algun personatge famós?"
+      ejemplo: "A qui li han posat una estàtua?"
+    - id: famosos_pueblo
+      pregunta: "Persones cèlebres o famoses del poble?"
+      ejemplo: "Els que han sortit del poble i han triomfat"
+
+- titulo: "Establiment típic"
+  preguntas:
+    - id: establecimiento_tipico
+      pregunta: "Algun establiment típic del poble, pel nom o pel carisma dels seus propietaris?"
+      ejemplo: "El bar, botiga o local que defineix el poble"
+
+- titulo: "Els bars"
+  preguntas:
+    - id: num_bares
+      pregunta: "Quants bars hi ha al vostre poble o ciutat?"
+      ejemplo: "Nombre de bars"
+    - id: bar_tipico
+      pregunta: "Quin d'ells és el més típic o amb més carisma?"
+      ejemplo: "El bar que no et pots perdre"
+
+- titulo: "Gastronomia"
+  preguntas:
+    - id: plato_tipico
+      pregunta: "Quin és el plat típic del vostre poble o ciutat? En què consisteix?"
+      ejemplo: "El plat que representa el poble"
+    - id: bebida_tipica
+      pregunta: "I alguna beguda típica?"
+      ejemplo: "La beguda d'aquí"
+    - id: bebida_apodo
+      pregunta: "Alguna beguda típica a la qual li hàgiu canviat el nom o la digueu d'una altra manera?"
+      ejemplo: "El nom amb el qual la demaneu al bar"
+
+- titulo: "L'alcalde o alcaldessa"
+  preguntas:
+    - id: nombre_alcalde
+      pregunta: "Nom de l'alcalde o alcaldessa?"
+      ejemplo: "Nom i cognoms"
+    - id: partido_politico
+      pregunta: "Partit Polític?"
+      ejemplo: "El partit que governa"
+    - id: tiempo_gobernando
+      pregunta: "Quant de temps porta governant?"
+      ejemplo: "Anys al càrrec"
+
+- titulo: "Anècdotes de l'alcalde"
+  preguntas:
+    - id: anecdota_alcalde
+      pregunta: "Alguna anècdota divertida o carismàtica de l'alcalde o alcaldessa?"
+      ejemplo: "Allò que més es comenta d'ell o d'ella"
+
+- titulo: "El personatge de les festes"
+  preguntas:
+    - id: personaje_tipico
+      pregunta: "Algun personatge típic del poble o ciutat, aquell que mai pot faltar en una festa?"
+      ejemplo: "L'ànima de la festa del poble"
+
+- titulo: "Noms més comuns"
+  preguntas:
+    - id: nombre_comun
+      pregunta: "Quin és el nom d'home i dona més posat al teu poble o ciutat?"
+      ejemplo: "El nom que es repeteix més"
+    - id: nombre_caracteristico
+      pregunta: "Algun nom característic d'aquest poble o ciutat o zona geogràfica?"
+      ejemplo: "Un nom molt típic per aquí"
+
+- titulo: "L'eslògan del poble"
+  preguntas:
+    - id: eslogan
+      pregunta: "Algun eslògan divertit del poble o ciutat?"
+      ejemplo: "La frase que ho defineix"
+
+- titulo: "Agermanament"
+  preguntas:
+    - id: hermanamiento
+      pregunta: "Està el poble o ciutat agermanat amb algun altre poble o ciutat del món? Per què?"
+      ejemplo: "L'agermanament i la seva història"
+
+- titulo: "Visites famoses"
+  preguntas:
+    - id: famoso_visita
+      pregunta: "Quina és la persona més famosa que ha visitat el poble o ciutat?"
+      ejemplo: "El famós que va passar per aquí"
+
+- titulo: "Les festes patronals"
+  preguntas:
+    - id: patron
+      pregunta: "Quin és el Patró del poble o ciutat?"
+      ejemplo: "El sant o verge que es celebra"
+    - id: que_se_celebra
+      pregunta: "Què es celebra en aquests dies al poble o ciutat?"
+      ejemplo: "Les tradicions i actes de les festes"
+    - id: unicas_fiestas
+      pregunta: "Són les úniques festes del poble o ciutat?"
+      ejemplo: "Hi ha més celebracions al llarg de l'any?"
+
+- titulo: "L'acte més significatiu"
+  preguntas:
+    - id: acto_significativo
+      pregunta: "Quin és l'acte més significatiu d'aquestes festes?"
+      ejemplo: "Allò que no et pots perdre de les festes"
+
+- titulo: "Llegendes locals"
+  preguntas:
+    - id: leyenda_ninos
+      pregunta: "Hi ha alguna llegenda que tots els nens del poble coneguin?"
+      ejemplo: "La història que es compta de generació en generació"
+
+- titulo: "El poble a Google Maps"
+  preguntas:
+    - id: google_maps
+      pregunta: "Alguna cosa divertida de Google Maps sobre el teu poble o ciutat?"
+      ejemplo: "Allò que apareix (o no apareix) al mapa"
+
+- titulo: "La festa més boja"
+  preguntas:
+    - id: fiesta_loca
+      pregunta: "Quina ha estat la festa més boja o divertida que ha passat aquí?"
+      ejemplo: "La que encara es recorda i s'explica"
+
+- titulo: "La banda sonora del poble"
+  preguntas:
+    - id: banda_sonora
+      pregunta: "Si el poble tingués una banda sonora, quina seria?"
+      ejemplo: "La cançó que ho defineix tot"
+
+- titulo: "Consells al visitant"
+  preguntas:
+    - id: nunca_hacer
+      pregunta: "Què és el que MAI has de fer en aquest poble o ciutat si el visites per primera vegada?"
+      ejemplo: "L'error que no ha de cometre cap turista"
+
+- titulo: "El que ho sap tot"
+  preguntas:
+    - id: sabe_todo
+      pregunta: "Qui és la persona que ho sap absolutament tot d'aquest poble o ciutat?"
+      ejemplo: "L'enciclopèdia vivent del poble"
+
+- titulo: "Frases i expressions locals"
+  preguntas:
+    - id: frase_local
+      pregunta: "Alguna frase típica que només s'entengui en aquesta ciutat?"
+      ejemplo: "La frase que els de fora no entenen"
+
+- titulo: "El poble a la tele"
+  preguntas:
+    - id: tele_pueblo
+      pregunta: "Ha vingut alguna vegada la tele a aquest poble o ciutat?"
+      ejemplo: "Quan i per què van venir les càmeres?"
+
+- titulo: "Llocs amb misteri"
+  preguntas:
+    - id: lugar_miedo
+      pregunta: "Hi ha algun lloc del poble on ningú s'atreveixi a anar de nit?"
+      ejemplo: "El lloc que fa mal rollo quan es fa fosc"
+
+- titulo: "El racó més surrealista"
+  preguntas:
+    - id: edificio_surreal
+      pregunta: "Quin edifici o racó del teu poble o ciutat té la història més surrealista?"
+      ejemplo: "El lloc amb la història més increïble"
+
+- titulo: "Secrets a veus"
+  preguntas:
+    - id: secreto_voces
+      pregunta: "Hi ha algun secret a veus que tothom sap però ningú comenta en públic?"
+      ejemplo: "Allò que tothom sap però ningú diu"
+
+- titulo: "El xafarderia del segle"
+  preguntas:
+    - id: chisme_grande
+      pregunta: "Quina ha estat la xafarderia que més ha revolucionat aquest poble o ciutat en els últims anys?"
+      ejemplo: "L'escàndol que ho va posar tot potes enlaire"
+
+- titulo: "L'Alcalde Honorífic del bar"
+  preguntas:
+    - id: alcalde_bar
+      pregunta: "Qui és l'Alcalde Honorífic del bar? Aquell que mai serà alcalde però podria ser-ho."
+      ejemplo: "El que mana al bar encara que no mani al poble"
+
+- titulo: "Allò que contarien les parets"
+  preguntas:
+    - id: paredes_plaza
+      pregunta: "Si les parets de la plaça major parlessin, quin seria l'escàndol més divertit que explicarien?"
+      ejemplo: "El secret que guarda la plaça"
+
+- titulo: "Terra de ningú"
+  preguntas:
+    - id: rincon_otro_pueblo
+      pregunta: "Hi ha algun racó del poble que pertanyi a un altre poble o sigui terra de ningú?"
+      ejemplo: "La zona fronterera o sense amo clar"
+
+- titulo: "Errors i senyals curioses"
+  preguntas:
+    - id: cagada_famosa
+      pregunta: "Algun lloc del poble reconegut per algun error divertit, color de la pintura, algun senyal de trànsit rar, etc.?"
+      ejemplo: "La badada que s'ha quedat per sempre"
+
+- titulo: "La queixa més absurda"
+  preguntas:
+    - id: queja_absurda
+      pregunta: "Quina és la queixa veïnal més absurda que ha hagut de gestionar l'ajuntament?"
+      ejemplo: "La reclamació que va deixar l'alcalde sense paraules"
+
+- titulo: "El personatge de Netflix"
+  preguntas:
+    - id: personaje_netflix
+      pregunta: "Algun personatge del poble que hauria de tenir la seva pròpia sèrie de Netflix?"
+      ejemplo: "El que té prou material per a 5 temporades"
+
+- titulo: "La pregunta del dominguero"
+  preguntas:
+    - id: pregunta_dominguero
+      pregunta: "Alguna pregunta de \"dominguero\" que facin tots els que visiten el poble o ciutat?"
+      ejemplo: "La pregunta que us treu de polleguera"
+
+- titulo: "L'ànima del poble"
+  preguntas:
+    - id: personaje_alma
+      pregunta: "Qui és aquell personatge del poble que, si no existís, caldria inventar-lo perquè el poble tingués ànima?"
+      ejemplo: "El que li dóna vida i color al poble"
+
+- titulo: "El racó secret"
+  preguntas:
+    - id: rincon_secreto
+      pregunta: "Existeix algun racó del poble que \"oficialment\" no aparegui als mapes però que tothom usi per a alguna cosa específica?"
+      ejemplo: "El lloc que no és a cap mapa però tothom coneix"
+
+- titulo: "La llegenda més absurda"
+  preguntas:
+    - id: leyenda_absurda
+      pregunta: "Quina és la llegenda local més absurda que la gent gran jura que és 100% real?"
+      ejemplo: "La història que els avis expliquen amb total serietat"
+
+- titulo: "Estrangers al poble"
+  preguntas:
+    - id: extranjeros
+      pregunta: "Hi ha estrangers vivint al poble?"
+      ejemplo: "Quants i d'on són?"
+    - id: argumento_extranjero
+      pregunta: "Si haguessis de convèncer un estranger perquè s'empadronés aquí, quin seria el teu argument de venda infal·lible?"
+      ejemplo: "El pitch perfecte per vendre el poble"
