@@ -6,7 +6,7 @@
    browser console until you have the URL ready.
    ============================================================ */
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwJpUZYcmLpdnV4MhroIfaBvCzNHMNutpWSI3PdiAlBHGvCIPPh9VbAOkVULiODDFDG/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwENv5SqmcAQwyksDmfV4reE7bHhSv8c_f9qnU_rgtYJ53DoT8EtRVHkqUTT5MTeCT2/exec';
 
 // Must match SHARED_SECRET in apps-script.gs
 const FORM_SECRET = 'fb153336bb032e5e9c2d781c4ce4bd721f0e432080b67e65';
