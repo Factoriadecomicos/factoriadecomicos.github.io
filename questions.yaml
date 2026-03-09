@@ -1,0 +1,387 @@
+# =============================================================
+#  PREGUNTAS DEL FORMULARIO – Fiestas de Pueblos
+# =============================================================
+#
+#  Cada bloque que empieza con "- titulo:" es un PASO del formulario.
+#  Si un paso tiene varias "preguntas:", todas aparecen juntas
+#  en la misma pantalla (agrupadas). Si tiene solo una, va sola.
+#
+#  Puedes cambiar cualquier "pregunta:" o "ejemplo:" libremente.
+#  El "ejemplo:" es el texto en gris que aparece dentro del campo.
+#
+#  Para añadir un paso nuevo, copia uno existente y pégalo donde quieras.
+#  Para agrupar dos preguntas en la misma pantalla, ponlas bajo el mismo titulo.
+#  Para separarlas, ponlas en bloques distintos (cada uno con su "- titulo:").
+#
+#  Lo único que NO debes cambiar son las líneas "id:" — son el nombre
+#  de la columna en Google Sheets. Si cambias un id pierdes ese dato.
+# =============================================================
+
+
+# ----- PASO INICIAL: datos de contacto ----------------------
+- titulo: "¡Queremos saberlo todo de tu pueblo!"
+  subtitulo: >
+    Formulario para el show "Fiestas de Pueblos" de Jordi Merca.
+    Rellena los datos y cuéntanos todo.
+  preguntas:
+    - id: pueblo
+      pregunta: "¿Cómo se llama tu pueblo o ciudad?"
+      ejemplo: "Nombre del pueblo o ciudad"
+      obligatorio: true
+    - id: nombre
+      pregunta: "Tu nombre"
+      ejemplo: "¿Cómo te llamas?"
+      obligatorio: true
+    - id: email
+      pregunta: "Tu email"
+      ejemplo: "para poder contactar contigo"
+      obligatorio: true
+      tipo: email
+
+
+# ----- PREGUNTAS --------------------------------------------
+
+- titulo: "El gentilicio"
+  preguntas:
+    - id: gentilicio
+      pregunta: "¿Cuál es el gentilicio de tu pueblo o ciudad?"
+      ejemplo: "Ej: madrileño, barcelonés..."
+    - id: apodo_gente
+      pregunta: "¿Cómo se llama coloquialmente la gente de tu pueblo o ciudad?"
+      ejemplo: "El mote o apodo que tiene la gente del lugar"
+
+- titulo: "Palabras y jerga local"
+  preguntas:
+    - id: palabras_locales
+      pregunta: "¿Hay palabras que solo se usen en tu pueblo o ciudad? ¿Cuáles y qué significado tienen?"
+      ejemplo: "Escribe las palabras y su significado"
+
+- titulo: "Habitantes y barrios"
+  preguntas:
+    - id: num_habitantes
+      pregunta: "¿Número de habitantes de tu pueblo o ciudad?"
+      ejemplo: "Número aproximado"
+    - id: num_barrios
+      pregunta: "¿Cuántos barrios hay en tu pueblo o ciudad?"
+      ejemplo: "Número de barrios"
+    - id: nombre_barrios
+      pregunta: "Nombre de los barrios y características de ellos"
+      ejemplo: "Cuéntanos los barrios y qué los caracteriza"
+
+- titulo: "Motes y apodos"
+  preguntas:
+    - id: motes_comunes
+      pregunta: "¿Cuáles son los motes más comunes o divertidos de vuestro pueblo o ciudad?"
+      ejemplo: "Los motes que más se escuchan por aquí"
+
+- titulo: "Rivalidades"
+  preguntas:
+    - id: pueblos_rivales
+      pregunta: "¿Cuáles son vuestros pueblos o ciudades rivales?"
+      ejemplo: "El pueblo o ciudad con el que tenéis más tirria"
+    - id: grado_rivalidad
+      pregunta: "¿Hasta dónde llega esa rivalidad?"
+      ejemplo: "¿Es cosa de broma o va en serio?"
+
+- titulo: "Anécdotas con el pueblo rival"
+  preguntas:
+    - id: anecdota_rival
+      pregunta: "¿Alguna anécdota divertida con ese pueblo o ciudad rival?"
+      ejemplo: "La historia que más gracia os hace contar"
+    - id: burla_rival
+      pregunta: "¿Hay alguna cosa de la que siempre os riáis del pueblo o ciudad vecino?"
+      ejemplo: "Lo que siempre les sacáis en cara"
+    - id: nombre_rival
+      pregunta: "¿Algún nombre divertido que tengáis vosotros para ese pueblo o ciudad?"
+      ejemplo: "El mote que le ponéis al pueblo rival"
+
+- titulo: "La pareja más longeva"
+  preguntas:
+    - id: pareja_longeva
+      pregunta: "¿Cuál es la pareja más longeva de tu pueblo o ciudad?"
+      ejemplo: "La pareja que lleva más años junta"
+
+- titulo: "Parejas con gente de fuera"
+  preguntas:
+    - id: parejas_foraneas
+      pregunta: "¿Hay parejas de tu pueblo o ciudad que se junten con los de otras ciudades o pueblos cercanos?"
+      ejemplo: "¿Se mezclan o se quedan entre vosotros?"
+
+- titulo: "Refranes y dichos"
+  preguntas:
+    - id: refranes
+      pregunta: "¿Refranes o dichos populares de tu pueblo o ciudad, o que suenen mucho en esta zona?"
+      ejemplo: "Los que se repiten en el bar, en casa, en la plaza..."
+
+- titulo: "Calles con nombre divertido"
+  preguntas:
+    - id: calle_divertida
+      pregunta: "¿Hay alguna calle con nombre divertido en tu pueblo o ciudad?"
+      ejemplo: "El nombre que siempre hace reír a los visitantes"
+
+- titulo: "La plaza más famosa"
+  preguntas:
+    - id: plaza_famosa
+      pregunta: "¿Cómo se llama la plaza más famosa de tu pueblo o ciudad, aquella donde todo el mundo queda para tomar algo o encontrarse?"
+      ejemplo: "La plaza de referencia del pueblo"
+
+- titulo: "Rotondas"
+  preguntas:
+    - id: num_rotondas
+      pregunta: "¿Cuántas rotondas hay en vuestro pueblo o ciudad?"
+      ejemplo: "Número aproximado"
+    - id: rotonda_polemica
+      pregunta: "¿Alguna controvertida por algún motivo?"
+      ejemplo: "La que más comentarios genera"
+
+- titulo: "Proyectos polémicos"
+  preguntas:
+    - id: proyecto_polemico
+      pregunta: "¿Algún proyecto arquitectónico polémico en vuestro pueblo o ciudad (semáforo, cruce, plaza, etc.)? ¿Cuál y por qué?"
+      ejemplo: "La obra que más discusiones ha generado"
+
+- titulo: "Monumentos y famosos"
+  preguntas:
+    - id: monumentos
+      pregunta: "¿Algún monumento o estatua a algún personaje famoso?"
+      ejemplo: "¿A quién le han puesto una estatua?"
+    - id: famosos_pueblo
+      pregunta: "¿Personas célebres o famosas del pueblo?"
+      ejemplo: "Los que han salido del pueblo y han triunfado"
+
+- titulo: "Establecimiento típico"
+  preguntas:
+    - id: establecimiento_tipico
+      pregunta: "¿Algún establecimiento típico del pueblo, por el nombre o por el carisma de sus dueños?"
+      ejemplo: "El bar, tienda o local que define al pueblo"
+
+- titulo: "Los bares"
+  preguntas:
+    - id: num_bares
+      pregunta: "¿Cuántos bares hay en vuestro pueblo o ciudad?"
+      ejemplo: "Número de bares"
+    - id: bar_tipico
+      pregunta: "¿Cuál de ellos es el más típico o con más carisma?"
+      ejemplo: "El bar que no te puedes perder"
+
+- titulo: "Gastronomía"
+  preguntas:
+    - id: plato_tipico
+      pregunta: "¿Cuál es el plato típico de vuestro pueblo o ciudad? ¿En qué consiste?"
+      ejemplo: "El plato que representa al pueblo"
+    - id: bebida_tipica
+      pregunta: "¿Y alguna bebida típica?"
+      ejemplo: "La bebida de aquí"
+    - id: bebida_apodo
+      pregunta: "¿Alguna bebida típica a la que le hayáis cambiado el nombre o le llaméis de otra manera?"
+      ejemplo: "El nombre con el que la pedís en el bar"
+
+- titulo: "El alcalde o alcaldesa"
+  preguntas:
+    - id: nombre_alcalde
+      pregunta: "¿Nombre del alcalde o alcaldesa?"
+      ejemplo: "Nombre y apellidos"
+    - id: partido_politico
+      pregunta: "¿Partido Político?"
+      ejemplo: "El partido que gobierna"
+    - id: tiempo_gobernando
+      pregunta: "¿Cuánto tiempo lleva gobernando?"
+      ejemplo: "Años en el cargo"
+
+- titulo: "Anécdotas del alcalde"
+  preguntas:
+    - id: anecdota_alcalde
+      pregunta: "¿Alguna anécdota divertida o carismática del alcalde o alcaldesa?"
+      ejemplo: "Lo que más se comenta de él o ella"
+
+- titulo: "El personaje de las fiestas"
+  preguntas:
+    - id: personaje_tipico
+      pregunta: "¿Algún personaje típico del pueblo o ciudad, aquel que nunca puede faltar en una fiesta?"
+      ejemplo: "El alma de la fiesta del pueblo"
+
+- titulo: "Nombres más comunes"
+  preguntas:
+    - id: nombre_comun
+      pregunta: "¿Cuál es el nombre de hombre y mujer más puesto en tu pueblo o ciudad?"
+      ejemplo: "El nombre que se repite más"
+    - id: nombre_caracteristico
+      pregunta: "¿Algún nombre característico de este pueblo o ciudad o zona geográfica?"
+      ejemplo: "Un nombre muy típico de por aquí"
+
+- titulo: "Eslogan del pueblo"
+  preguntas:
+    - id: eslogan
+      pregunta: "¿Algún eslogan divertido del pueblo o ciudad?"
+      ejemplo: "La frase que lo define"
+
+- titulo: "Hermanamiento"
+  preguntas:
+    - id: hermanamiento
+      pregunta: "¿Está el pueblo o ciudad hermanado con algún otro pueblo o ciudad del mundo? ¿Por qué?"
+      ejemplo: "El hermanamiento y su historia"
+
+- titulo: "Visitas famosas"
+  preguntas:
+    - id: famoso_visita
+      pregunta: "¿Cuál es la persona más famosa que ha visitado el pueblo o ciudad?"
+      ejemplo: "El famoso que pasó por aquí"
+
+- titulo: "Las fiestas patronales"
+  preguntas:
+    - id: patron
+      pregunta: "¿Cuál es el Patrón del pueblo o ciudad?"
+      ejemplo: "El santo o virgen que se celebra"
+    - id: que_se_celebra
+      pregunta: "¿Qué se celebra en estos días en el pueblo o ciudad?"
+      ejemplo: "Las tradiciones y actos de las fiestas"
+    - id: unicas_fiestas
+      pregunta: "¿Son las únicas fiestas del pueblo o ciudad?"
+      ejemplo: "¿Hay más celebraciones a lo largo del año?"
+
+- titulo: "El acto más significativo"
+  preguntas:
+    - id: acto_significativo
+      pregunta: "¿Cuál es el acto más significativo de estas fiestas?"
+      ejemplo: "Lo que no te puedes perder de las fiestas"
+
+- titulo: "Leyendas locales"
+  preguntas:
+    - id: leyenda_ninos
+      pregunta: "¿Hay alguna leyenda que todos los niños del pueblo conozcan?"
+      ejemplo: "La historia que se cuenta de generación en generación"
+
+- titulo: "El pueblo en Google Maps"
+  preguntas:
+    - id: google_maps
+      pregunta: "¿Alguna cosa divertida de Google Maps sobre tu pueblo o ciudad?"
+      ejemplo: "Lo que aparece (o no aparece) en el mapa"
+
+- titulo: "La fiesta más loca"
+  preguntas:
+    - id: fiesta_loca
+      pregunta: "¿Cuál ha sido la fiesta más loca o divertida que ha pasado aquí?"
+      ejemplo: "La que aún se recuerda y se cuenta"
+
+- titulo: "La banda sonora del pueblo"
+  preguntas:
+    - id: banda_sonora
+      pregunta: "¿Si el pueblo tuviera una banda sonora, cuál sería?"
+      ejemplo: "La canción que lo define todo"
+
+- titulo: "Consejos al visitante"
+  preguntas:
+    - id: nunca_hacer
+      pregunta: "¿Qué es lo que NUNCA debes hacer en este pueblo o ciudad si lo visitas por primera vez?"
+      ejemplo: "El error que no debe cometer ningún turista"
+
+- titulo: "El que lo sabe todo"
+  preguntas:
+    - id: sabe_todo
+      pregunta: "¿Quién es la persona que lo sabe absolutamente todo de este pueblo o ciudad?"
+      ejemplo: "La enciclopedia viviente del pueblo"
+
+- titulo: "Frases y expresiones locales"
+  preguntas:
+    - id: frase_local
+      pregunta: "¿Alguna frase típica que solo se entienda en esta ciudad?"
+      ejemplo: "La frase que los de fuera no pilian"
+
+- titulo: "El pueblo en la tele"
+  preguntas:
+    - id: tele_pueblo
+      pregunta: "¿Ha venido alguna vez la tele a este pueblo o ciudad?"
+      ejemplo: "¿Cuándo y por qué vinieron las cámaras?"
+
+- titulo: "Lugares con misterio"
+  preguntas:
+    - id: lugar_miedo
+      pregunta: "¿Hay algún lugar del pueblo al que nadie se atreva a ir de noche?"
+      ejemplo: "El sitio que da mal rollo cuando oscurece"
+
+- titulo: "El rincón más surreal"
+  preguntas:
+    - id: edificio_surreal
+      pregunta: "¿Qué edificio o rincón de tu pueblo o ciudad tiene la historia más surreal?"
+      ejemplo: "El lugar con la historia más increíble"
+
+- titulo: "Secretos a voces"
+  preguntas:
+    - id: secreto_voces
+      pregunta: "¿Hay algún secreto a voces que todo el mundo sabe pero nadie habla en público?"
+      ejemplo: "Lo que todos saben pero nadie dice"
+
+- titulo: "El chisme del siglo"
+  preguntas:
+    - id: chisme_grande
+      pregunta: "¿Cuál ha sido el chisme que más ha revolucionado este pueblo o ciudad en los últimos años?"
+      ejemplo: "El escándalo que lo puso todo patas arriba"
+
+- titulo: "El Alcalde Honorífico del bar"
+  preguntas:
+    - id: alcalde_bar
+      pregunta: "¿Quién es el Alcalde Honorífico del bar? Aquel que nunca será alcalde pero podría serlo."
+      ejemplo: "El que manda en el bar aunque no mande en el pueblo"
+
+- titulo: "Lo que contarían las paredes"
+  preguntas:
+    - id: paredes_plaza
+      pregunta: "Si las paredes de la plaza mayor hablaran, ¿cuál sería el escándalo más divertido que contarían?"
+      ejemplo: "El secreto que guarda la plaza"
+
+- titulo: "Tierra de nadie"
+  preguntas:
+    - id: rincon_otro_pueblo
+      pregunta: "¿Hay algún rincón del pueblo que pertenezca a otro pueblo o sea tierra de nadie?"
+      ejemplo: "La zona fronteriza o sin dueño claro"
+
+- titulo: "Cagadas y señales curiosas"
+  preguntas:
+    - id: cagada_famosa
+      pregunta: "¿Algún lugar del pueblo que sea reconocido por alguna cagada divertida, color de la pintura, alguna señal de tráfico rara, etc.?"
+      ejemplo: "El fallo que se ha quedado para siempre"
+
+- titulo: "La queja más absurda"
+  preguntas:
+    - id: queja_absurda
+      pregunta: "¿Cuál es la queja vecinal más absurda que ha tenido que gestionar el ayuntamiento?"
+      ejemplo: "La reclamación que dejó al alcalde sin palabras"
+
+- titulo: "El personaje de Netflix"
+  preguntas:
+    - id: personaje_netflix
+      pregunta: "¿Algún personaje del pueblo que debería tener su propia serie de Netflix?"
+      ejemplo: "El que tiene suficiente material para 5 temporadas"
+
+- titulo: "La pregunta del dominguero"
+  preguntas:
+    - id: pregunta_dominguero
+      pregunta: "¿Alguna pregunta de \"dominguero\" que hagan todos los que visitan el pueblo o ciudad?"
+      ejemplo: "La pregunta que os saca de quicio"
+
+- titulo: "El alma del pueblo"
+  preguntas:
+    - id: personaje_alma
+      pregunta: "¿Quién es ese personaje del pueblo que, si no existiera, habría que inventarlo para que el pueblo tuviera alma?"
+      ejemplo: "El que le da vida y color al pueblo"
+
+- titulo: "El rincón secreto"
+  preguntas:
+    - id: rincon_secreto
+      pregunta: "¿Existe algún rincón del pueblo que \"oficialmente\" no aparezca en los mapas pero que todo el mundo use para algo específico?"
+      ejemplo: "El lugar que no está en ningún mapa pero todos conocen"
+
+- titulo: "La leyenda más absurda"
+  preguntas:
+    - id: leyenda_absurda
+      pregunta: "¿Cuál es la leyenda local más absurda que la gente mayor jura que es 100% real?"
+      ejemplo: "La historia que los abuelos cuentan con total seriedad"
+
+- titulo: "Extranjeros en el pueblo"
+  preguntas:
+    - id: extranjeros
+      pregunta: "¿Hay extranjeros viviendo en el pueblo?"
+      ejemplo: "¿Cuántos y de dónde son?"
+    - id: argumento_extranjero
+      pregunta: "Si tuvieras que convencer a un extranjero para que se empadronara aquí, ¿cuál sería tu argumento de venta infalible?"
+      ejemplo: "El pitch perfecto para vender el pueblo"

@@ -1,11 +1,81 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Queremos saberlo todo de tu pueblo! – Fiestas de Pueblos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-Anda!
+
+  <!-- Background decoration -->
+  <div class="bg-shapes" aria-hidden="true">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+      <p class="show-label">Fiestas de Pueblos · Jordi Merca</p>
+      <h1 class="site-title">¡Queremos saberlo<br>todo de tu pueblo!</h1>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progreso del formulario">
+      <div class="progress-bar" id="progressBar"></div>
+      <span class="progress-label" id="progressLabel">Paso 1 de 45</span>
+    </div>
+
+    <!-- Form -->
+    <main class="form-container" id="formContainer">
+      <!-- Steps are injected here by form.js -->
+      <div class="loading-state">Cargando el formulario...</div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="form-nav" id="formNav" aria-label="Navegación del formulario">
+      <button class="btn btn-back" id="btnBack" type="button" aria-label="Paso anterior">
+        ← Anterior
+      </button>
+      <button class="btn btn-next" id="btnNext" type="button" aria-label="Siguiente paso">
+        Siguiente →
+      </button>
+      <button class="btn btn-submit" id="btnSubmit" type="button" aria-label="Enviar formulario" style="display:none">
+        Enviar 🎉
+      </button>
+    </nav>
+
+    <!-- Resume banner (shown when saved progress is found) -->
+    <div class="resume-banner" id="resumeBanner" style="display:none" role="alert">
+      <span>Tenemos tu progreso guardado. ¿Continuar donde lo dejaste?</span>
+      <div class="resume-actions">
+        <button class="btn-resume-yes" id="btnResumeYes" type="button">Sí, continuar</button>
+        <button class="btn-resume-no" id="btnResumeNo" type="button">Empezar de nuevo</button>
+      </div>
+    </div>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- Success screen (hidden until submit) -->
+  <div class="success-screen" id="successScreen" style="display:none" role="status" aria-live="polite">
+    <div class="success-card">
+      <div class="success-confetti" aria-hidden="true">🎊🎉🥳🎊🎉🥳</div>
+      <h2>¡Muchas gracias!</h2>
+      <p>Hemos recibido las respuestas de <strong id="successPueblo"></strong>.<br>
+      Nos pondremos en contacto contigo pronto.</p>
+      <p class="success-sub">– El equipo de Fiestas de Pueblos</p>
+    </div>
+  </div>
+
+  <!-- Error toast -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive" style="display:none"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="form.js"></script>
 </body>
 </html>
