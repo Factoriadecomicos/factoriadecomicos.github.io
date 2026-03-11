@@ -21,7 +21,7 @@
 # ----- PAS INICIAL: dades de contacte ----------------------
 - titulo: "Volem saber-ho tot del teu poble!"
   subtitulo: >
-    Formulari per al show "Festes de Pobles" de Jordi Merca.
+    Formulari per al show "Festa major" de Jordi Merca.
     Omple les dades i explica'ns-ho tot.
   preguntas:
     - id: pueblo
